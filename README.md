@@ -30,29 +30,6 @@ A full-stack self-improvement tracking application where users can register, log
 
 ---
 
-## 📁 Folder Structure
-
-root/
-│
-├── backend/
-│ ├── models/
-│ ├── controllers/
-│ ├── routes/
-│ ├── config/
-│ └── server.js
-│
-├── frontend/
-│ ├── components/
-│ │ ├── Navbar/
-│ │ ├── Homepage/
-│ │ └── ProtectedRoute.js
-│ ├── pages/
-│ │ ├── LoginForm.js
-│ │ └── RegisterForm.js
-│ ├── App.js
-│ └── index.js
-
----
 
 ## ⚙️ Setup Instructions
 
@@ -72,3 +49,34 @@ Edit
 cd frontend
 npm install
 npm start
+```
+API ENDPOINTS
+
+| Method | Route                 | Description                        |
+| ------ | --------------------- | ---------------------------------- |
+| POST   | `/api/users`          | Register new user                  |
+| GET    | `/api/users`          | Get all users (for login check)    |
+| POST   | `/api/users/login`    | Login and return token (optional)  |
+| POST   | `/api/behaviours`     | Create a new behavior              |
+| GET    | `/api/behaviours/top` | Get top 5 behaviors by to-do count |
+| DELETE | `/api/behaviours/:id` | Delete a behavior                  |
+| POST   | `/api/todos`          | Add to-do to a behavior            |
+| PUT    | `/api/todos/:id`      | Edit a to-do                       |
+| DELETE | `/api/todos/:id`      | Delete a to-do                     |
+
+
+🔐 Authentication Flow
+Passwords are securely hashed using bcrypt
+
+JWT tokens are created and stored in localStorage
+
+Protected routes check for user and token in localStorage
+
+ProtectedRoute component guards pages like homepage
+
+
+🌐 Hosting
+
+Frontend: (<a href="https://papaya-cascaron-1c2763.netlify.app/">https://papaya-cascaron-1c2763.netlify.app/</a>)
+
+Backend: (<a href="https://self-improvement-app-mbvc.onrender.com">https://self-improvement-app-mbvc.onrender.com</a>)
